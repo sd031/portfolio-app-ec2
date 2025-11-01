@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Sandip Das</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #764ba2;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .error {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .success {
+            background: #51cf66;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            color: #666;
+        }
+
+        .architecture-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>John Doe</h1>
+            <p>Full Stack Developer & Cloud Architect</p>
+            <span class="badge">AWS 3-Tier Architecture</span>
+        </header>
+
+        <!-- Statistics Section -->
+        <div class="section">
+            <h2>📊 Statistics</h2>
+            <div id="stats-container" class="stats">
+                <div class="loading">Loading statistics...</div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2>👨‍💻 About Me</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Welcome to my portfolio! I'm a passionate developer specializing in cloud architecture and full-stack development. 
+                This portfolio is built using a 3-tier architecture on AWS, demonstrating best practices in cloud infrastructure, 
+                security, and scalability.
+            </p>
+            <div class="architecture-info">
+                <strong>Architecture:</strong> Frontend (EC2 + ALB) → Backend API (EC2 in Private Subnet) → Database (RDS MySQL)
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section">
+            <h2>🚀 Projects</h2>
+            <div id="projects-container" class="projects-grid">
+                <div class="loading">Loading projects...</div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2>💡 Skills</h2>
+            <div id="skills-container" class="skills-container">
+                <div class="loading">Loading skills...</div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section">
+            <h2>📧 Contact Me</h2>
+            <div id="contact-message"></div>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 John Doe. Deployed on AWS using Terraform.</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                EC2 | VPC | ALB | RDS | Security Groups | IAM Roles
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Fetch and display statistics
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+                
+                const statsContainer = document.getElementById('stats-container');
+                statsContainer.innerHTML = `
+                    <div class="stat-card">
+                        <h3>${data.projects_count}</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${data.skills_count}</h3>
+                        <p>Skills</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${data.experience_years}</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${data.certifications}</h3>
+                        <p>Certifications</p>
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('stats-container').innerHTML = 
+                    '<div class="error">Failed to load statistics</div>';
+            }
+        }
+
+        // Fetch and display projects
+        async function loadProjects() {
+            try {
+                const response = await fetch('/api/projects');
+                const data = await response.json();
+                
+                const projectsContainer = document.getElementById('projects-container');
+                projectsContainer.innerHTML = data.projects.map(project => `
+                    <div class="project-card">
+                        <h3>${project.name}</h3>
+                        <p>${project.description}</p>
+                        <p style="margin-top: 0.5rem; color: #667eea; font-weight: bold;">
+                            ${project.technologies}
+                        </p>
+                    </div>
+                `).join('');
+            } catch (error) {
+                document.getElementById('projects-container').innerHTML = 
+                    '<div class="error">Failed to load projects</div>';
+            }
+        }
+
+        // Fetch and display skills
+        async function loadSkills() {
+            try {
+                const response = await fetch('/api/skills');
+                const data = await response.json();
+                
+                const skillsContainer = document.getElementById('skills-container');
+                skillsContainer.innerHTML = data.skills.map(skill => 
+                    `<span class="skill-tag">${skill}</span>`
+                ).join('');
+            } catch (error) {
+                document.getElementById('skills-container').innerHTML = 
+                    '<div class="error">Failed to load skills</div>';
+            }
+        }
+
+        // Handle contact form submission
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                const messageDiv = document.getElementById('contact-message');
+                
+                if (response.ok) {
+                    messageDiv.innerHTML = '<div class="success">Message sent successfully!</div>';
+                    document.getElementById('contact-form').reset();
+                } else {
+                    messageDiv.innerHTML = '<div class="error">Failed to send message. Please try again.</div>';
+                }
+            } catch (error) {
+                document.getElementById('contact-message').innerHTML = 
+                    '<div class="error">Failed to send message. Backend service unavailable.</div>';
+            }
+        });
+
+        // Load all data on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadStats();
+            loadProjects();
+            loadSkills();
+        });
+    </script>
+</body>
+</html>
